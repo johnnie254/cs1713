@@ -1,0 +1,56 @@
+// Assignment 3 written by Jonathan Taylor
+/*  The is program implements the factorial and exponential functions using user input.
+    Once input, creates a list of factorial and its approximation.
+    Also give the exact e^x value.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+int main(int argc, char *argv[])
+{
+	double factorial(int n);
+	double exponent(int n, double x);
+	
+	//Gets the user input starting with firstI, and the second input secondI.
+	int firstI = atoi(argv[1]);
+	double secondI = atof(argv[2]);
+	
+	exponent(firstI, secondI);
+	return 0;
+}
+
+//First function returns the factorial.
+double factorial(int n)
+{
+	int i, factor=1;
+	
+	//Loop implements the factorial and returns the value.
+	for(i=1;i<=n;i++)
+	{
+		factor*=i;
+	}
+	return factor;
+}
+
+//Second function returns the exponent
+double exponent(int n, double x)
+{
+	double totalExp, i;
+	double newN = (double)n;
+	
+	printf("\n\n%26s\n--------------------------------\n",  "i     Approximation");
+	
+	//Until the i is equal to user input, keep summing it up using the factorial function to equal the total exponent.
+	for(i=0;i<=newN;i++)
+	{
+		totalExp+=(pow(x,i)/factorial(i));
+		printf("%8.f     %.10f\n", i, totalExp);
+	}
+	
+	//Prints the exact value of the exponent.
+	double exactValue = pow(exp(1.0),x);
+	printf("Exact value = %.10f\n\n\n", exactValue);
+}
