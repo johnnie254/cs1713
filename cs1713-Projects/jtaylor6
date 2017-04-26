@@ -1,0 +1,72 @@
+//Assignment 6 by Jonathan Taylor
+/*  Using structs and pointers, this program finds the frequency of 
+    words in a file. Input file "words.txt", Output file "frequencies.txt".
+    NOTE: You may have to take out the comment lines on lines 31 and 39. In case you're using CMD Prompt.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+
+typedef struct wordfreq
+{  
+    int count;
+    char *word;
+}wordfreq;
+
+ 
+int main(int argc, char* argv[])
+{
+	wordfreq wcounter[1000];
+	FILE *infile, *outputFile;
+	infile = fopen("words.txt", "r"); //Text document with words.
+	outputFile = fopen("frequencies.txt", "w"); //Output document with results.
+    int i;
+	for(i=0; i < 1000; i++){
+		wcounter[i].word = NULL; //Set arrays and pointers to NULL.
+	}
+        
+    //infile = fopen(argv[1], "r"); //Reads input file.
+    if(infile == NULL) //If it can't find input file...
+    {
+       printf("ERROR: Cannot find input file :(\n");
+       return 0;
+    }
+    if(outputFile == NULL)
+    	printf("ERROR: Cannot find output file :()\n");
+    //outputFile = fopen(argv[2], "w"); //Else, create output file with results.
+    
+    
+    char word[30];
+    int count = 0;
+    while(!feof(infile))
+    {
+       fscanf(infile, "%s", word);
+       int lock = 0;
+       for(i=0; i<count; i++)
+       {
+          if(strcmp(wcounter[i].word, word) == 0)
+          {
+             wcounter[i].count++;   //Word is located and incremented the count.
+             lock = 1;
+             break;
+          }
+       }
+       if(!lock)
+       {
+          wcounter[count].word = malloc(strlen(word) * sizeof(char));
+          strcpy(wcounter[count].word, word);
+          wcounter[count].count = 1;
+          count++;
+       }   
+    }
+    fclose(infile);
+    for(i=0; i<count; i++)
+    {
+       fprintf(outputFile, "%d  %s\n", wcounter[i].count, wcounter[i].word);
+       free(wcounter[i].word);
+    }  
+    fclose(outputFile);  //Close and save output file
+}
