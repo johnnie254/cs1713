@@ -13,7 +13,7 @@ Project 1 -- A program that uses a loop that outputs a table of angles in degree
 
 jtaylor2
 ------
-Project 2 -- A program that takes the input file "romanstable.txt" and outputs a table of decimal numbers and their roman numeral equivalent from 1 to 1000.
+Project 2 -- A program that outputs a table of decimal numbers and their roman numeral equivalent from 1 to 1000. The output should look exactly like "romanstable.txt". "romanstable.txt" is not an input file.
 
 jtaylor3
 ------
@@ -33,7 +33,7 @@ Project 6 -- Using structs and pointers, this program finds the frequency of wor
 
 jtaylor7
 ------
-Project 7 -- Using linked lists, this program finds prime numbers up to 1000 using the sieve method. Here is some information on the <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Sieve of Eratosthenes</a>
+Project 7 -- Using linked lists, this program finds prime numbers up to 1000 using the sieve method. Here's some information on the <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Sieve of Eratosthenes</a>
 
 jtaylorbonus
 ------
