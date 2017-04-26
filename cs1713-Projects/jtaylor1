@@ -2,6 +2,10 @@
 #define PI 3.141593
 
 // "Assignment1 written by Jonathan Taylor"
+/*  Project 1 -- A program that uses a loop that outputs a table of 
+    angles in degrees and radians up to 360 degrees
+    in increments of 10 degrees.
+*/
 
 int main()
 {
