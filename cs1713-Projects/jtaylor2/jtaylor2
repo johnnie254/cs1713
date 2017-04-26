@@ -1,6 +1,7 @@
 // Assignment 2 written by Jonathan Taylor
-/*  Project 2 -- A program that takes the input file "romanstable.txt" and outputs a 
-    table of decimal numbers and their roman numeral equivalent from 1 to 1000.
+/*  Project 2 -- A program that outputs a table of decimal numbers 
+    and their roman numeral equivalent from 1 to 1000. The 
+    output should look exactly like "romanstable.txt"
 */
 
 #include <stdio.h>
