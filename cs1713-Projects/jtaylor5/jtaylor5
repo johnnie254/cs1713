@@ -1,0 +1,76 @@
+//Assignment 5 by Jonathan Taylor
+/*  A palindrome is a sequence that reads the same 
+    backward as forward (eg: "racecar", "kayak", "neveroddoreven"). 
+    This program finds the largest palindrome in a string.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+// Takes in users palindrome input and determines its length and where it begins and ends.
+// If the string is palindrome, it returns its length (j-i+1).
+// If the string is not a palindrome, it returns -1.
+int palindromelength(char *str, int i, int j)
+{
+
+	int start = i, end = j;
+	while(start < end)
+	{
+		if(str[start] != str[end])
+		{
+		return -1;
+		start++;
+		--end;	
+		}
+	}
+
+	return (j-i+1);
+}
+ 
+// Finds the longest palindrome in the palindrome string.
+void largestpalindrome(char *str)
+{
+
+	int n = strlen(str);
+	int i, j;
+	int i1, i2, maxlength = 0;
+	for(i=0; i < n; i++)
+	{
+		for(j=i; j < n ; j++)
+		{
+			//printf("%d - %d\n", i, j);
+			int l = palindromelength(str, i, j);
+			if(l != -1)
+			{
+				//printf("%d - %d : %d\n", i, j, l);
+				if(maxlength < l)
+				{
+					maxlength = l;
+					i1 = i;
+					i2 = j;
+				}
+			}
+		}
+	}
+
+	printf("Largest palindrome is: ");
+	for(i=i1; i<=i2; i++)
+		printf("%c", str[i]);
+		printf("\n");
+}
+
+
+//Where the magic happens.
+int main()
+{
+	char str[50];
+
+	printf("Enter a string: \n");
+	scanf("%s", str);
+
+	largestpalindrome(str);
+	return 0;
+}
+
