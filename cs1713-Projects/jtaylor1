@@ -1,0 +1,22 @@
+#include <stdio.h>
+#define PI 3.141593
+
+// "Assignment1 written by Jonathan Taylor"
+
+int main()
+{
+    int degree = 0;
+    double radians;
+
+    printf("Degrees to Radians \n");
+
+    for(degree=0;degree<=360;degree=degree+10)
+    {
+        radians=degree*PI/180;
+        printf("%6i %9.6f \n", degree, radians);
+    }
+
+    return 0;
+
+
+}
