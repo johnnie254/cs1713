@@ -1,4 +1,6 @@
 //Bonus Assignment by Jonathan Taylor
+//Reducing program size without changing functionality --- results.
+
 
 #include <stdio.h>
 #include <stdlib.h>
