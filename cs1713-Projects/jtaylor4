@@ -1,0 +1,63 @@
+// Assignment 4 by Jonathan Taylor
+/*  Given the input file "klargest.txt", the program will find 
+    the k largest elements of the file. When the program reads the file, 
+    it will allocate an array of size k and store the k largest numbers in the array. 
+    If the next element is larger than the previous, that number will be modified 
+    and stored in the array. If not, it will be left alone.
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+
+int main(int argc, char *argv[])
+{
+	int k = atoi(argv[2]);
+	k=6;
+	int a[k], i, j, n, t;
+	int num;
+	
+	FILE *fp;
+	fp = fopen("V:\\Intro Computer Prog II\\Assignments\\Assignment4_JonathanTaylor\\klargest.txt", "r");
+	//Enter array size, then user input, then sorts input from ascending->decending order
+
+i=0;
+	while(fscanf(fp, "%d", &num) == 1)
+	{
+		a[i] = num;
+		printf("%d\n", num);
+		
+		if(i >= k)
+		{
+			for(j=0; j<= k; j++)
+		}
+		else
+		{
+			a[i] = num;
+		}
+	i++;
+}
+	
+	
+	for (i = 0; i < k; i++)
+    {
+    		for (j = 0; j < k-i; j++)
+        	{
+        		if(a[j]>a[j+1])
+        		{
+        			t = a[j];
+                	a[j] = a[j+1];
+                	a[j+1] = t;
+				}
+            }
+		}
+    
+    
+    	for (i=0; i < k; i++)
+    	printf("%d ", a[i]);
+    	
+    	fclose(fp);
+    	
+        return 0;
+}
